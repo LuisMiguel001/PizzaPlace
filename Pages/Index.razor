@@ -5,3 +5,16 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@code {
+	private Estados Estados { get; } = new Estados();
+
+	protected override void OnInitialized()
+	{
+		Estados.Menu.Add(new Pizza(1, "Pepperoni", 8.99M, Picantes.Spicy));
+
+		Estados.Menu.Add(new Pizza(2, "Margarita", 7.99M, Picantes.None));
+
+		Estados.Menu.Add(new Pizza(3, "Diabolo", 9.99M, Picantes.Hot));
+	}
+}
