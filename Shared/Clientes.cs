@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public string Nombree { get; set; } = default!;
+        public string Nombre { get; set; } = default!;
 
         public string Calle { get; set; } = default!;
 

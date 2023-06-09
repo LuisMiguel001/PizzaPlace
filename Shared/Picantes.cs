@@ -2,8 +2,8 @@
 {
     public enum Picantes
     {
-        None,
-        Spicy,
-        Hot
+        Nada,
+        Picante,
+        Caliente
     }
 }

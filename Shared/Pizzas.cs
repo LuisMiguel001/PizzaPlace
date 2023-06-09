@@ -1,17 +1,17 @@
 ﻿namespace PizzaPlace.Shared
 {
-    public class Pizza
+    public class Pizzas
     {
-        public Pizza(int id, string nombre, decimal precio, Picantes picantes)
+        public Pizzas(int id, string nombre, decimal precio, Picantes picantes)
         {
             this.Id = id;
             this.Nombre = nombre;
             this.Precio = precio;
-            this.picante = picantes;
+            this.Picante = picantes;
         }
         public int Id { get; }
         public string Nombre { get; }
         public decimal Precio { get; }
-        public Picantes picante { get; }
+        public Picantes Picante { get; }
     }
 }
