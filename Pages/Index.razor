@@ -72,6 +72,7 @@
 <h1 class="mt-2 mb-2">Por favor, introduzca sus datos a continuación</h1>
 <EditForm Model="@Estados.Cestas.Clientes"
 		  OnValidSubmit="RealizarPedidos">
+	<DataAnnotationsValidator />
 	<fieldset>
 		<div class="row mb-2">
 			<label class="col-2" for="nombre">Nombre:</label>
@@ -79,14 +80,29 @@
 					   @bind-Value="@Estados.Cestas.Clientes.Nombre" />
 		</div>
 		<div class="row mb-2">
+			<div class="col-6 offset-2">
+				<ValidationMessage For="@(() => Estados.Cestas.Clientes.Nombre)" />
+			</div>
+		</div>
+		<div class="row mb-2">
 			<label class="col-2" for="street">Street:</label>
 			<InputText class="form-control col-6"
 					   @bind-Value="@Estados.Cestas.Clientes.Calle" />
 		</div>
 		<div class="row mb-2">
+			<div class="col-6 offset-2">
+				<ValidationMessage For="@(() => Estados.Cestas.Clientes.Calle)" />
+			</div>
+		</div>
+		<div class="row mb-2">
 			<label class="col-2" for="city">City:</label>
 			<InputText class="form-control col-6"
 					   @bind-Value="@Estados.Cestas.Clientes.Ciudad" />
+		</div>
+		<div class="row mb-2">
+			<div class="col-6 offset-2">
+				<ValidationMessage For="@(() => Estados.Cestas.Clientes.Ciudad)" />
+			</div>
 		</div>
 		<div class="row mb-2">
 			<button class="mx-auto w-25 btn btn-success"

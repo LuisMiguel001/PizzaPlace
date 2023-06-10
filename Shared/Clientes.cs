@@ -6,13 +6,13 @@ namespace PizzaPlace.Shared
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Proporcione un nombre")]
+        [Required(ErrorMessage ="Proporcione un nombre")]
         public string Nombre { get; set; } = default!;
 
-		[Required(ErrorMessage = "Proporcione una calle con número de casa")]
+		[Required(ErrorMessage ="Proporcione una calle con número de casa")]
 		public string Calle { get; set; } = default!;
 
-		[Required(ErrorMessage = "Proporcione una ciudad")]
+		[Required(ErrorMessage ="Proporcione una ciudad")]
 		public string Ciudad { get; set; } = default!;
     }
 }
