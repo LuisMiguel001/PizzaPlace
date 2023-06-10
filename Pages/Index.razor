@@ -67,30 +67,38 @@
 		<div class="col"> </div>
 	</div>
 }
-
 <!-- End shopping basket -->
 <!-- Customer entry -->
-<h1>Por favor, introduzca sus datos a continuación</h1>
-<fieldset>
-	<div class="row mb-2">
-		<label class="col-2" for="nombre">Nombre:</label>
-		<input class="col-6" id="nombre"
-			   @bind="Estados.Cestas.Clientes.Nombre" />
-	</div>
-	<div class="row mb-2">
-		<label class="col-2" for="calle">Calle:</label>
-		<input class="col-6" id="calle"
-			   @bind="Estados.Cestas.Clientes.Calle" />
-	</div>
-	<div class="row mb-2">
-		<label class="col-2" for="ciudad">Ciudad:</label>
-		<input class="col-6" id="ciudad"
-			   @bind="Estados.Cestas.Clientes.Ciudad" />
-	</div>
-	<button @onclick="RealizarPedidos">Verificar</button>
-</fieldset>
+<h1 class="mt-2 mb-2">Por favor, introduzca sus datos a continuación</h1>
+<EditForm Model="@Estados.Cestas.Clientes"
+		  OnValidSubmit="RealizarPedidos">
+	<fieldset>
+		<div class="row mb-2">
+			<label class="col-2" for="nombre">Nombre:</label>
+			<InputText class="form-control col-6"
+					   @bind-Value="@Estados.Cestas.Clientes.Nombre" />
+		</div>
+		<div class="row mb-2">
+			<label class="col-2" for="street">Street:</label>
+			<InputText class="form-control col-6"
+					   @bind-Value="@Estados.Cestas.Clientes.Calle" />
+		</div>
+		<div class="row mb-2">
+			<label class="col-2" for="city">City:</label>
+			<InputText class="form-control col-6"
+					   @bind-Value="@Estados.Cestas.Clientes.Ciudad" />
+		</div>
+		<div class="row mb-2">
+			<button class="mx-auto w-25 btn btn-success"
+					@onclick="RealizarPedidos">
+				Checkout
+			</button>
+		</div>
+	</fieldset>
+</EditForm>
 <!-- End customer entry -->
 
+<!--@Estados.ToJson()-->
 @code {
 	private Estados Estados { get; } = new Estados();
 
