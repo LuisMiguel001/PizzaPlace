@@ -2,7 +2,7 @@
 @using PizzaPlace.Shared
 
 <!-- Menu -->
-<h1>Our selection of pizzas</h1>
+<h1>Nuestra selección de pizzas</h1>
 @foreach (var pizza in Estados.Menu.Pizzas)
 {
 	<div class="row">
@@ -30,7 +30,7 @@
 <!-- Shopping Basket -->
 @if (Estados.Cestas.Pedidos.Any())
 {
-	<h1 class="">Your current order</h1>
+	<h1 class="">Tu orden actual</h1>
 	@foreach (var (pizza, pos) in Estados.Cestas.Pedidos.Select((id, pos) => (Estados.Menu.GetPizza(id), pos)))
 	{
 		<div class="row mb-2">
@@ -70,24 +70,24 @@
 
 <!-- End shopping basket -->
 <!-- Customer entry -->
-<h1>Please enter your details below</h1>
+<h1>Por favor, introduzca sus datos a continuación</h1>
 <fieldset>
 	<div class="row mb-2">
-		<label class="col-2" for="name">Name:</label>
-		<input class="col-6" id="name"
+		<label class="col-2" for="nombre">Nombre:</label>
+		<input class="col-6" id="nombre"
 			   @bind="Estados.Cestas.Clientes.Nombre" />
 	</div>
 	<div class="row mb-2">
-		<label class="col-2" for="street">Street:</label>
-		<input class="col-6" id="street"
+		<label class="col-2" for="calle">Calle:</label>
+		<input class="col-6" id="calle"
 			   @bind="Estados.Cestas.Clientes.Calle" />
 	</div>
 	<div class="row mb-2">
-		<label class="col-2" for="city">City:</label>
-		<input class="col-6" id="city"
+		<label class="col-2" for="ciudad">Ciudad:</label>
+		<input class="col-6" id="ciudad"
 			   @bind="Estados.Cestas.Clientes.Ciudad" />
 	</div>
-	<button @onclick="RealizarPedidos">Checkout</button>
+	<button @onclick="RealizarPedidos">Verificar</button>
 </fieldset>
 <!-- End customer entry -->
 
