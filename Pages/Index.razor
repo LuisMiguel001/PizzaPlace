@@ -14,8 +14,8 @@
 		</div>
 		<div class="col"></div>
 		<div class="col">
-			<img src="@SpicinessImage(pizza.picante)"
-				 alt="@pizza.picante" />
+			<img src="@SpicinessImage(pizza.Picante)"
+				 alt="@pizza.Picante" />
 		</div>
 		<div class="col">
 			<button class="btn btn-success pl-4 pr-4"
@@ -39,8 +39,8 @@
 			</div>
 			<div class="col text-right">
 				@(
-			$"{pizza.Precio:0.00}"
-			)
+					$"{pizza.Precio:0.00}"
+					)
 			</div>
 			<div class="col"></div>
 			<div class="col"></div>
@@ -62,22 +62,45 @@
 	<div class="row">
 		<div class="col"> Total:</div>
 		<div class="col text-right font-weight-bold"> @($"{Estados.PrecioTotal:0.00}") </div>
-			<div class="col"> </div>
-			<div class="col"> </div>
-			<div class="col"> </div>
-		</div>
+		<div class="col"> </div>
+		<div class="col"> </div>
+		<div class="col"> </div>
+	</div>
 }
+
+<!-- End shopping basket -->
+<!-- Customer entry -->
+<h1>Please enter your details below</h1>
+<fieldset>
+	<div class="row mb-2">
+		<label class="col-2" for="name">Name:</label>
+		<input class="col-6" id="name"
+			   @bind="Estados.Cestas.Clientes.Nombre" />
+	</div>
+	<div class="row mb-2">
+		<label class="col-2" for="street">Street:</label>
+		<input class="col-6" id="street"
+			   @bind="Estados.Cestas.Clientes.Calle" />
+	</div>
+	<div class="row mb-2">
+		<label class="col-2" for="city">City:</label>
+		<input class="col-6" id="city"
+			   @bind="Estados.Cestas.Clientes.Ciudad" />
+	</div>
+	<button @onclick="RealizarPedidos">Checkout</button>
+</fieldset>
+<!-- End customer entry -->
 
 @code {
 	private Estados Estados { get; } = new Estados();
 
 	protected override void OnInitialized()
 	{
-		Estados.Menu.Add(new Pizzas(1, "Pepperoni", 8.99M, Picantes.Spicy));
+		Estados.Menu.Add(new Pizzas(1, "Pepperoni", 8.99M, Picantes.Picante));
 
-		Estados.Menu.Add(new Pizzas(2, "Margarita", 7.99M, Picantes.None));
+		Estados.Menu.Add(new Pizzas(2, "Margarita", 7.99M, Picantes.Nada));
 
-		Estados.Menu.Add(new Pizzas(3, "Diabolo", 9.99M, Picantes.Hot));
+		Estados.Menu.Add(new Pizzas(3, "Diabolo", 9.99M, Picantes.Caliente));
 	}
 	private string SpicinessImage(Picantes picante)
 	=> $"images/{picante.ToString().ToLower()}.png";
@@ -87,4 +110,9 @@
 
 	private void RemoveFromBasket(int pos)
 	=> Estados.Cestas.RemoveAt(pos);
+
+	private void RealizarPedidos()
+	{
+		Console.WriteLine("Realizar pedido");
+	}
 }
