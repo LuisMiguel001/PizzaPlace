@@ -20,7 +20,7 @@
 		<div class="col">
 			<button class="btn btn-success pl-4 pr-4"
 				@onclick="@(() => AddToBasket(pizza))">
-				Add
+				Agregar
 			</button>
 		</div>
 	</div>
@@ -47,7 +47,7 @@
 			<div class="col">
 				<button class="btn btn-danger"
 				@onclick="@(() => RemoveFromBasket(pos))">
-					Remove
+					Eliminar
 				</button>
 			</div>
 		</div>
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 		<div class="row mb-2">
-			<label class="col-2" for="street">Street:</label>
+			<label class="col-2" for="calle">Calle:</label>
 			<InputText class="form-control col-6"
 					   @bind-Value="@Estados.Cestas.Clientes.Calle" />
 		</div>
@@ -95,7 +95,7 @@
 			</div>
 		</div>
 		<div class="row mb-2">
-			<label class="col-2" for="city">City:</label>
+			<label class="col-2" for="ciudad">Ciudad:</label>
 			<InputText class="form-control col-6"
 					   @bind-Value="@Estados.Cestas.Clientes.Ciudad" />
 		</div>
@@ -107,14 +107,14 @@
 		<div class="row mb-2">
 			<button class="mx-auto w-25 btn btn-success"
 					@onclick="RealizarPedidos">
-				Checkout
+				Verificar
 			</button>
 		</div>
 	</fieldset>
 </EditForm>
 <!-- End customer entry -->
 
-<!--@Estados.ToJson()-->
+@Estados.ToJson()
 @code {
 	private Estados Estados { get; } = new Estados();
 
@@ -127,10 +127,10 @@
 		Estados.Menu.Add(new Pizzas(3, "Diabolo", 9.99M, Picantes.Caliente));
 	}
 	private string SpicinessImage(Picantes picante)
-	=> $"images/{picante.ToString().ToLower()}.png";
+	=> $"Imagenes/{picante.ToString().ToLower()}.png";
 
 	private void AddToBasket(Pizzas pizza)
-	=> Estados.Cestas.Add(pizza.Id);
+	=> Estados.Cestas.Agregar(pizza.Id);
 
 	private void RemoveFromBasket(int pos)
 	=> Estados.Cestas.RemoveAt(pos);

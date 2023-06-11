@@ -8,7 +8,7 @@
 
 		public bool Pago { get; set; }
 
-		public void Add(int pizzaId)
+		public void Agregar(int pizzaId)
 		=> Pedidos.Add(pizzaId);
 
 		public void RemoveAt(int pos)
